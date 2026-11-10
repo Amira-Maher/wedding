@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#352344">
+    <title>دعوة زفاف إسراء ومحمد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --purple: #352344;
+            --gold: #d8c18b;
+            --blue: #7da5b4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--purple);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .opening {
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 15px;
+            text-align: center;
+            background: radial-gradient(ellipse at center, #59476b, var(--purple));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .open-title {
+            font-family: 'Amiri', serif;
+            font-size: clamp(32px, 7vw, 48px);
+        }
+
+        .envelope {
+            width: min(85vw, 390px);
+            cursor: pointer;
+            transition: .5s;
+            filter: drop-shadow(0 15px 25px #0006);
+            position: relative;
+            z-index: 2;
+        }
+
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+
+        .envelope img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .open-btn {
+            margin-top: 20px;
+            border: 0;
+            border-radius: 30px;
+            background: var(--gold);
+            color: var(--purple);
+            padding: 13px 35px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .opening.opened {
+            animation: fade .8s forwards;
+        }
+
+        @keyframes fade {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        main {
+            display: none;
+        }
+
+        main.visible {
+            display: block;
+            animation: show 1s;
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .photo {
+            min-height: 100svh;
+            padding: 25px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #7599a8, #a9c3ca, #638b9b);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo.purple {
+            background: radial-gradient(ellipse, #59486a, #30203e);
+        }
+
+        .photo img {
+            max-width: 100%;
+            max-height: 94svh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            box-shadow: 0 15px 40px #0005;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scroll-note {
+            position: absolute;
+            bottom: 15px;
+            background: #30203eaa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 2;
+        }
+
+        .details {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 18px;
+            text-align: center;
+            background:
+                radial-gradient(circle at top left, #796080, transparent 45%),
+                radial-gradient(circle at bottom right, #526d7c, transparent 45%),
+                linear-gradient(145deg, #352344, #21172d);
+        }
+
+        .details-card {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 650px);
+            margin: auto;
+            padding: 35px 22px;
+            border: 1px solid #d8c18b99;
+            border-radius: 30px;
+            background: #ffffff0d;
+            box-shadow: 0 15px 45px #0003;
+        }
+
+        .details h2 {
+            font-family: 'Amiri', serif;
+            font-size: 38px;
+            color: var(--gold);
+            margin: 0 0 10px;
+        }
+
+        .details-intro {
+            color: #f5eaf5;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            padding: 17px 10px;
+            margin: 12px 0;
+            border: 1px solid #d8c18b55;
+            border-radius: 18px;
+            background: #ffffff0b;
+        }
+
+        .detail-icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .detail-label {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .detail-value {
+            font-family: 'Amiri', serif;
+            font-size: 25px;
+            margin-top: 5px;
+        }
+
+        .countdown {
+            padding: 70px 15px;
+            text-align: center;
+            background: linear-gradient(145deg, #526d7c, #352344);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown h2 {
+            font-family: 'Amiri', serif;
+            font-size: 38px;
+            color: var(--gold);
+            margin: 0 0 10px;
+        }
+
+        .countdown p {
+            color: #fff;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 30px auto 0;
+            direction: rtl;
+        }
+
+        .time-box {
+            width: 105px;
+            padding: 18px 8px;
+            border: 1px solid var(--gold);
+            border-radius: 18px;
+            background: #ffffff12;
+            box-shadow: 0 8px 20px #0002;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .time-box small {
+            font-size: 13px;
+        }
+
+        .countdown-finished {
+            color: var(--gold);
+            font-size: 24px;
+            font-family: 'Amiri', serif;
+        }
+
+        .messages {
+            padding: 70px 18px;
+            background: linear-gradient(160deg, #352344, #526d7c);
+            display: flex;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card {
+            position: relative;
+            z-index: 2;
+            width: min(100%, 560px);
+            padding: 30px 22px;
+            border: 1px solid #d8c18b88;
+            border-radius: 24px;
+            background: #ffffff10;
+        }
+
+        .message-card h2 {
+            text-align: center;
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            font-size: 34px;
+        }
+
+        .sub {
+            text-align: center;
+            color: #f5eaf5;
+            margin-bottom: 25px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #291b35;
+            color: var(--gold);
+            font-family: 'Amiri', serif;
+            font-size: 20px;
+        }
+
+        .flower {
+            position: absolute;
+            z-index: 1;
+            top: -60px;
+            color: #f4d9e9;
+            opacity: .7;
+            pointer-events: none;
+            animation: falling linear infinite;
+            text-shadow: 0 2px 8px #fff5;
+        }
+
+        @keyframes falling {
+            0% {
+                transform: translate3d(0, -10vh, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate3d(35px, 50vh, 0) rotate(180deg);
+            }
+
+            100% {
+                transform: translate3d(-25px, 110vh, 0) rotate(360deg);
+            }
+        }
+
+        .flower:nth-child(1) {
+            left: 5%;
+            animation-duration: 12s;
+            font-size: 25px;
+        }
+
+        .flower:nth-child(2) {
+            left: 18%;
+            animation-duration: 16s;
+            animation-delay: 2s;
+            font-size: 19px;
+        }
+
+        .flower:nth-child(3) {
+            left: 32%;
+            animation-duration: 14s;
+            animation-delay: 5s;
+            font-size: 28px;
+        }
+
+        .flower:nth-child(4) {
+            left: 48%;
+            animation-duration: 18s;
+            animation-delay: 1s;
+            font-size: 22px;
+        }
+
+        .flower:nth-child(5) {
+            left: 65%;
+            animation-duration: 13s;
+            animation-delay: 4s;
+            font-size: 30px;
+        }
+
+        .flower:nth-child(6) {
+            left: 80%;
+            animation-duration: 17s;
+            animation-delay: 3s;
+            font-size: 20px;
+        }
+
+        .flower:nth-child(7) {
+            left: 92%;
+            animation-duration: 15s;
+            animation-delay: 6s;
+            font-size: 26px;
+        }
+
+        .music-btn {
+            position: fixed;
+            bottom: 18px;
+            left: 18px;
+            z-index: 10;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            background: #352344dd;
+            color: var(--gold);
+            padding: 10px 15px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .music-btn.visible {
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .time-box {
+                width: 75px;
+                padding: 13px 5px;
+            }
+
+            .time-box span {
+                font-size: 25px;
+            }
+
+            .details h2,
+            .countdown h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="opening" id="opening">
+        <div class="flowers">
+            <span class="flower">🌸</span>
+            <span class="flower">🌷</span>
+            <span class="flower">🌺</span>
+            <span class="flower">🌸</span>
+            <span class="flower">🌹</span>
+            <span class="flower">🌷</span>
+            <span class="flower">🌺</span>
+        </div>
+        <p class="eyebrow">دعوة بكل حب وفرحة</p>
+        <h1 class="open-title">افتحوا رسالتنا 💜</h1>
+        <div class="envelope" id="envelope">
+            <img src="https://raw.githubusercontent.com/Amira-Maher/wedding/master/13.png" alt="ظرف الدعوة">
+        </div>
+        <p>اضغط على الظرف لفتح الدعوة</p>
+        <button class="open-btn" id="openBtn">افتح الدعوة</button>
+    </section>
+    <main id="content">
+        <section class="photo">
+            <img src="https://raw.githubusercontent.com/Amira-Maher/wedding/master/11.png" alt="غلاف الدعوة">
+            <span class="scroll-note">اسحب لأسفل لمشاهدة الدعوة ↓</span>
+        </section>
+        <section class="photo purple">
+            <img src="https://raw.githubusercontent.com/Amira-Maher/wedding/master/14.png" alt="تفاصيل الدعوة">
+        </section>
+        <section class="photo">
+            <img src="https://raw.githubusercontent.com/Amira-Maher/wedding/master/12.png" alt="العروسان">
+        </section>
+        <section class="details">
+            <span class="flower">🌸</span>
+            <span class="flower">🌷</span>
+            <span class="flower">🌹</span>
+            <span class="flower">🌺</span>
+            <span class="flower">🌸</span>
+            <div class="details-card">
+                <h2>موعدنا مع الفرح 💜</h2>
+                <p class="details-intro">يسعدنا وجودكم ومشاركتكم أجمل لحظاتنا</p>
+                <div class="detail-item">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-label">التاريخ</div>
+                    <div class="detail-value">الخميس 12 نوفمبر 2026</div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🕘</span>
+                    <div class="detail-label">الساعة</div>
+                    <div class="detail-value">9 مساءً</div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">📍</span>
+                    <div class="detail-label">المكان</div>
+                    <div class="detail-value">قاعة الخيام جولد – ملوي</div>
+                </div>
+            </div>
+        </section>
+        <section class="countdown">
+            <span class="flower">🌸</span>
+            <span class="flower">🌷</span>
+            <span class="flower">🌹</span>
+            <h2>باقي على أجمل يوم ❤️</h2>
+            <p>بنستنى اليوم اللي هتكمل فيه فرحتنا بوجودكم</p>
+            <div class="timer" id="timer">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>يوم</small>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <small>ساعة</small>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <small>دقيقة</small>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <small>ثانية</small>
+                </div>
+            </div>
+            <div id="countdownMessage"></div>
+        </section>
+        <section class="messages">
+            <span class="flower">🌸</span>
+            <span class="flower">🌷</span>
+            <span class="flower">🌹</span>
+            <div class="message-card">
+                <h2>كلمة منك.. ذكرى تدوم 💜</h2>
+                <p class="sub">شارك إسراء ومحمد فرحتهم بكلمة حلوة ❤️</p>
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc8F0IWxYwxurv2CNFXspSc1c1EXFqeBS0wIx5j8OYoHSVEBA/viewform?embedded=true"
+                    width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0">
+                    جاري تحميل النموذج...
+                </iframe>
+            </div>
+        </section>
+        <footer class="footer">ربنا يجعل أيامكم كلها فرح وسعادة ✨</footer>
+    </main>
+    <audio id="backgroundMusic" loop>
+        <source src="https://raw.githubusercontent.com/Amira-Maher/wedding/master/music.mp3" type="audio/mpeg">
+    </audio>
+    <button class="music-btn" id="musicBtn">🔊 إيقاف الموسيقى</button>
+    <script>
+        const opening = document.getElementById('opening');
+        const content = document.getElementById('content');
+        const music = document.getElementById('backgroundMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        function openInvitation() {
+            if (opening.classList.contains('opened')) return;
+            music.play().catch(() => {
+                musicBtn.textContent = '🎵 تشغيل الموسيقى';
+            });
+            opening.classList.add('opened');
+            setTimeout(() => {
+                opening.style.display = 'none';
+                content.classList.add('visible');
+                musicBtn.classList.add('visible');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 800);
+        }
+        document.getElementById('openBtn').addEventListener('click', openInvitation);
+        document.getElementById('envelope').addEventListener('click', openInvitation);
+        musicBtn.addEventListener('click', () => {
+            if (music.paused) {
+                music.play().then(() => {
+                    musicBtn.textContent = '🔊 إيقاف الموسيقى';
+                }).catch(() => {
+                    musicBtn.textContent = '🎵 تشغيل الموسيقى';
+                });
+            } else {
+                music.pause();
+                musicBtn.textContent = '🎵 تشغيل الموسيقى';
+            }
+        });
+        const weddingDate = new Date('2026-11-12T21:00:00+02:00').getTime();
+        function updateCountdown() {
+            const now = Date.now();
+            const difference = weddingDate - now;
+            const message = document.getElementById('countdownMessage');
+            if (difference <= 0) {
+                document.getElementById('timer').style.display = 'none';
+                message.className = 'countdown-finished';
+                message.textContent = 'أجمل يوم وصل! ❤️ ألف مبروك للعروسين';
+                return;
+            }
+            document.getElementById('days').textContent = Math.floor(difference / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            document.getElementById('minutes').textContent = Math.floor((difference / (1000 * 60)) % 60);
+            document.getElementById('seconds').textContent = Math.floor((difference / 1000) % 60);
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+
+</html>
